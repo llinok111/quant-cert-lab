@@ -1,0 +1,347 @@
+{
+  "generatedAt": "2026-11-13T04:23:41.935Z",
+  "node": "v24.19.0",
+  "corpus": {
+    "meshes": 6,
+    "vertices": 6064,
+    "bits": 12,
+    "targetDivisor": 10000,
+    "repeatPerSample": 200,
+    "chooseRepeatPerSample": 2000,
+    "warmup": 1,
+    "samples": 9
+  },
+  "coldStartMs": 10.798771,
+  "ops": {
+    "encode": {
+      "samples": 9,
+      "min": 1.2515214586257934,
+      "median": 1.261632752418518,
+      "p95": 1.3428414297103881,
+      "max": 1.3428414297103881,
+      "mean": 1.2708765384885998,
+      "stddev": 0.02838466420631812,
+      "rsd": 0.022334714149397084,
+      "unit": "ms per corpus encode (12-bit + bit-pack)"
+    },
+    "decodeMeasure": {
+      "samples": 9,
+      "min": 0.6548006296157837,
+      "median": 0.6637127113342285,
+      "p95": 0.6710322666168212,
+      "max": 0.6710322666168212,
+      "mean": 0.6634684440824721,
+      "stddev": 0.005870471311535915,
+      "rsd": 0.008848154518719188,
+      "unit": "ms per corpus decode (unpack + dequant + error)"
+    },
+    "certify": {
+      "samples": 9,
+      "min": 1.9070446491241455,
+      "median": 1.9252370691299439,
+      "p95": 2.0048203468322754,
+      "max": 2.0048203468322754,
+      "mean": 1.932689258787367,
+      "stddev": 0.02834452248544197,
+      "rsd": 0.014665845715532283,
+      "unit": "ms per corpus certify"
+    },
+    "chooseBits": {
+      "samples": 9,
+      "min": 0.06740108633041382,
+      "median": 0.06790055322647094,
+      "p95": 0.07166796493530274,
+      "max": 0.07166796493530274,
+      "mean": 0.06839369222852919,
+      "stddev": 0.0013244974275655483,
+      "rsd": 0.019365783369903494,
+      "repeatPerSample": 2000,
+      "unit": "ms per corpus minimal-depth solve"
+    },
+    "baselineShared": {
+      "samples": 9,
+      "min": 0.27757600307464597,
+      "median": 0.2790512228012085,
+      "p95": 0.3067029142379761,
+      "max": 0.3067029142379761,
+      "mean": 0.28352308167351614,
+      "stddev": 0.009694747468803595,
+      "rsd": 0.03419385614596041,
+      "unit": "ms per corpus shared-bounds quantize + oracle error"
+    }
+  },
+  "bytes": {
+    "float32": 72768,
+    "packed12": 27438,
+    "packed16": 36534,
+    "savings12Pct": 62.293865,
+    "savings16Pct": 49.793865,
+    "packed12Ratio": 0.377061
+  },
+  "perBits": [
+    {
+      "mesh": "torus",
+      "bits": 8,
+      "diagonal": 3.88201,
+      "declaredBound": 0.007611864491641126,
+      "measuredMax": 0.007545380146128726,
+      "tightness": 0.991266,
+      "violations": 0,
+      "bytes": 3481
+    },
+    {
+      "mesh": "torus",
+      "bits": 10,
+      "diagonal": 3.88201,
+      "declaredBound": 0.0018974459857949786,
+      "measuredMax": 0.001833441173272261,
+      "tightness": 0.966268,
+      "violations": 0,
+      "bytes": 4345
+    },
+    {
+      "mesh": "torus",
+      "bits": 12,
+      "diagonal": 3.88201,
+      "declaredBound": 0.00047407434331315417,
+      "measuredMax": 0.00046180826486154743,
+      "tightness": 0.974126,
+      "violations": 0,
+      "bytes": 5209
+    },
+    {
+      "mesh": "torus",
+      "bits": 16,
+      "diagonal": 3.88201,
+      "declaredBound": 0.000029698302950323318,
+      "measuredMax": 0.00002891633201055435,
+      "tightness": 0.97367,
+      "violations": 0,
+      "bytes": 6937
+    },
+    {
+      "mesh": "sphere",
+      "bits": 8,
+      "diagonal": 3.464102,
+      "declaredBound": 0.006792415712761483,
+      "measuredMax": 0.006242578102134847,
+      "tightness": 0.919051,
+      "violations": 0,
+      "bytes": 2545
+    },
+    {
+      "mesh": "sphere",
+      "bits": 10,
+      "diagonal": 3.464102,
+      "declaredBound": 0.0016931688984594586,
+      "measuredMax": 0.0016203147235451145,
+      "tightness": 0.956972,
+      "violations": 0,
+      "bytes": 3175
+    },
+    {
+      "mesh": "sphere",
+      "bits": 12,
+      "diagonal": 3.464102,
+      "declaredBound": 0.0004230268348237895,
+      "measuredMax": 0.000345897924967342,
+      "tightness": 0.817674,
+      "violations": 0,
+      "bytes": 3805
+    },
+    {
+      "mesh": "sphere",
+      "bits": 16,
+      "diagonal": 3.464102,
+      "declaredBound": 0.00002648900584712371,
+      "measuredMax": 0.000024866033413654,
+      "tightness": 0.93873,
+      "violations": 0,
+      "bytes": 5065
+    },
+    {
+      "mesh": "cylinder",
+      "bits": 8,
+      "diagonal": 2.2,
+      "declaredBound": 0.004313767285696966,
+      "measuredMax": 0.003327561520019406,
+      "tightness": 0.771382,
+      "violations": 0,
+      "bytes": 223
+    },
+    {
+      "mesh": "cylinder",
+      "bits": 10,
+      "diagonal": 2.2,
+      "declaredBound": 0.0010753105584661797,
+      "measuredMax": 0.0008294508018750296,
+      "tightness": 0.771359,
+      "violations": 0,
+      "bytes": 273
+    },
+    {
+      "mesh": "cylinder",
+      "bits": 12,
+      "diagonal": 2.2,
+      "declaredBound": 0.0002686619963720641,
+      "measuredMax": 0.00020721078248257213,
+      "tightness": 0.771269,
+      "violations": 0,
+      "bytes": 322
+    },
+    {
+      "mesh": "cylinder",
+      "bits": 16,
+      "diagonal": 2.2,
+      "declaredBound": 0.000016826647620319135,
+      "measuredMax": 0.000012947710454874837,
+      "tightness": 0.769477,
+      "violations": 0,
+      "bytes": 421
+    },
+    {
+      "mesh": "terrain",
+      "bits": 8,
+      "diagonal": 3.311734,
+      "declaredBound": 0.006493661208798792,
+      "measuredMax": 0.006237687384217084,
+      "tightness": 0.960581,
+      "violations": 0,
+      "bytes": 4825
+    },
+    {
+      "mesh": "terrain",
+      "bits": 10,
+      "diagonal": 3.311734,
+      "declaredBound": 0.0016187039978294454,
+      "measuredMax": 0.0015528580417186093,
+      "tightness": 0.959322,
+      "violations": 0,
+      "bytes": 6025
+    },
+    {
+      "mesh": "terrain",
+      "bits": 12,
+      "diagonal": 3.311734,
+      "declaredBound": 0.0004044289416173004,
+      "measuredMax": 0.0003872929121231255,
+      "tightness": 0.957629,
+      "violations": 0,
+      "bytes": 7225
+    },
+    {
+      "mesh": "terrain",
+      "bits": 16,
+      "diagonal": 3.311734,
+      "declaredBound": 0.00002533276934140982,
+      "measuredMax": 0.000024585470966300846,
+      "tightness": 0.970501,
+      "violations": 0,
+      "bytes": 9625
+    },
+    {
+      "mesh": "helix-tube",
+      "bits": 8,
+      "diagonal": 3.771826,
+      "declaredBound": 0.0073958099469174175,
+      "measuredMax": 0.007037064984838111,
+      "tightness": 0.951493,
+      "violations": 0,
+      "bytes": 5785
+    },
+    {
+      "mesh": "helix-tube",
+      "bits": 10,
+      "diagonal": 3.771826,
+      "declaredBound": 0.001843584905020108,
+      "measuredMax": 0.0017813576526613949,
+      "tightness": 0.966247,
+      "violations": 0,
+      "bytes": 7225
+    },
+    {
+      "mesh": "helix-tube",
+      "bits": 12,
+      "diagonal": 3.771826,
+      "declaredBound": 0.00046061309971235373,
+      "measuredMax": 0.0004295190656446793,
+      "tightness": 0.932494,
+      "violations": 0,
+      "bytes": 8665
+    },
+    {
+      "mesh": "helix-tube",
+      "bits": 16,
+      "diagonal": 3.771826,
+      "declaredBound": 0.000028849871870793435,
+      "measuredMax": 0.00002810768239735569,
+      "tightness": 0.974274,
+      "violations": 0,
+      "bytes": 11545
+    },
+    {
+      "mesh": "bracket",
+      "bits": 8,
+      "diagonal": 2.771281,
+      "declaredBound": 0.0054339326511810915,
+      "measuredMax": 0.004436748364086954,
+      "tightness": 0.816489,
+      "violations": 0,
+      "bytes": 1483
+    },
+    {
+      "mesh": "bracket",
+      "bits": 10,
+      "diagonal": 2.771281,
+      "declaredBound": 0.001354535138951713,
+      "measuredMax": 0.001105934375060685,
+      "tightness": 0.816468,
+      "violations": 0,
+      "bytes": 1848
+    },
+    {
+      "mesh": "bracket",
+      "bits": 12,
+      "diagonal": 2.771281,
+      "declaredBound": 0.0003384214729019044,
+      "measuredMax": 0.0002762810501699348,
+      "tightness": 0.816382,
+      "violations": 0,
+      "bytes": 2212
+    },
+    {
+      "mesh": "bracket",
+      "bits": 16,
+      "diagonal": 2.771281,
+      "declaredBound": 0.000021191204993472525,
+      "measuredMax": 0.000017263613082353287,
+      "tightness": 0.814659,
+      "violations": 0,
+      "bytes": 2941
+    }
+  ],
+  "sharedBaseline8bit": {
+    "sharedBoxSize": [
+      2.7,
+      2.7,
+      2.209003
+    ],
+    "violations": 559,
+    "vertices": 6064,
+    "worstErrorRatio": 1.847668
+  },
+  "certificate": {
+    "bits": 12,
+    "worstTightness": 0.974126,
+    "corpusMeasuredMax": 0.00046180826486154743,
+    "chosenBits": [
+      13,
+      13,
+      13,
+      13,
+      13,
+      13
+    ],
+    "baselineSharedMeasuredMax": 0.0005322049233674964
+  }
+}

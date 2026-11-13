@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>quant-cert-lab — bit-packed positions with a live error certificate</title>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #0b0e14; color: #e6edf3; font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  #app { position: fixed; inset: 0; }
+  canvas { display: block; }
+  #hud { position: fixed; top: 14px; left: 14px; width: 330px; padding: 12px 14px; background: rgba(13,18,28,.88); border: 1px solid #253044; border-radius: 8px; backdrop-filter: blur(6px); }
+  #hud h1 { font-size: 13px; margin: 0 0 8px; letter-spacing: .04em; color: #8bd5ff; }
+  .row { display: flex; justify-content: space-between; gap: 8px; }
+  .k { color: #8b98ab; }
+  .v { color: #e6edf3; text-align: right; }
+  .warn { color: #ffb86b; }
+  .ok { color: #7ee787; }
+  #controls { margin-top: 10px; border-top: 1px solid #253044; padding-top: 9px; }
+  input[type=range] { width: 100%; accent-color: #58a6ff; }
+  #meshes { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+  button { background: #161d2b; color: #c9d6e5; border: 1px solid #2b3a52; border-radius: 5px; padding: 3px 7px; font: inherit; cursor: pointer; }
+  button.on { background: #1f6feb; border-color: #58a6ff; color: #fff; }
+  #legend { margin-top: 9px; display: flex; align-items: center; gap: 6px; color: #8b98ab; }
+  #bar { flex: 1; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #2b6cb0, #63b3ed, #f6e05e, #f56565); }
+  #note { position: fixed; bottom: 12px; left: 14px; color: #6e7d91; }
+  code { color: #a5d6ff; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="hud">
+  <h1>QUANT-CERT-LAB · live certificate</h1>
+  <div class="row"><span class="k">mesh</span><span class="v" id="s-mesh">—</span></div>
+  <div class="row"><span class="k">vertices / tris</span><span class="v" id="s-count">—</span></div>
+  <div class="row"><span class="k">bits</span><span class="v" id="s-bits">—</span></div>
+  <div class="row"><span class="k">declared bound</span><span class="v" id="s-bound">—</span></div>
+  <div class="row"><span class="k">measured max</span><span class="v" id="s-max">—</span></div>
+  <div class="row"><span class="k">tightness</span><span class="v" id="s-tight">—</span></div>
+  <div class="row"><span class="k">packed / float32</span><span class="v" id="s-bytes">—</span></div>
+  <div class="row"><span class="k">saved</span><span class="v" id="s-save">—</span></div>
+  <div class="row"><span class="k">shared-bbox max</span><span class="v" id="s-base">—</span></div>
+  <div class="row"><span class="k">min bits @ ε=diag/1e4</span><span class="v" id="s-pick">—</span></div>
+  <div id="controls">
+    <div class="row"><span class="k">resolution bits</span><span class="v" id="s-bitslider">12</span></div>
+    <input id="bits" type="range" min="6" max="16" step="1" value="12" />
+    <div id="meshes"></div>
+    <div id="legend"><span>0</span><div id="bar"></div><span>bound</span></div>
+  </div>
+</div>
+<div id="note">vertex colour = measured error / declared bound · drag to orbit, wheel to zoom</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
